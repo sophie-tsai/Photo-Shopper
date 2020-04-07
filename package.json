@@ -2,7 +2,7 @@
   "name": "create-react-plus",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ryanzhou7.github.io/create-react-plus",
+  "homepage": "http://sophie-tsai.github.io/Photo-Shopper",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
