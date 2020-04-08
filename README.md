@@ -1,6 +1,3 @@
-
-React Project in progress...
-
 See it live [here](https://sophie-tsai.github.io/Photo-Shopper/).
 
 **Check out other projects:**
