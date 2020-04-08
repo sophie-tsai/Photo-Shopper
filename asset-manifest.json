@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Photo-Shopper/static/css/main.e84f3054.chunk.css",
-    "main.js": "/Photo-Shopper/static/js/main.36e869cc.chunk.js",
-    "main.js.map": "/Photo-Shopper/static/js/main.36e869cc.chunk.js.map",
+    "main.js": "/Photo-Shopper/static/js/main.b797ad0c.chunk.js",
+    "main.js.map": "/Photo-Shopper/static/js/main.b797ad0c.chunk.js.map",
     "runtime-main.js": "/Photo-Shopper/static/js/runtime-main.4137acdd.js",
     "runtime-main.js.map": "/Photo-Shopper/static/js/runtime-main.4137acdd.js.map",
-    "static/js/2.ce11e53d.chunk.js": "/Photo-Shopper/static/js/2.ce11e53d.chunk.js",
-    "static/js/2.ce11e53d.chunk.js.map": "/Photo-Shopper/static/js/2.ce11e53d.chunk.js.map",
+    "static/js/2.30e5131d.chunk.js": "/Photo-Shopper/static/js/2.30e5131d.chunk.js",
+    "static/js/2.30e5131d.chunk.js.map": "/Photo-Shopper/static/js/2.30e5131d.chunk.js.map",
     "index.html": "/Photo-Shopper/index.html",
-    "precache-manifest.cb6be6c29b60cff49620068eafdec4f5.js": "/Photo-Shopper/precache-manifest.cb6be6c29b60cff49620068eafdec4f5.js",
+    "precache-manifest.ab852db3ef0bd677b47be843974bc117.js": "/Photo-Shopper/precache-manifest.ab852db3ef0bd677b47be843974bc117.js",
     "service-worker.js": "/Photo-Shopper/service-worker.js",
     "static/css/main.e84f3054.chunk.css.map": "/Photo-Shopper/static/css/main.e84f3054.chunk.css.map",
-    "static/js/2.ce11e53d.chunk.js.LICENSE.txt": "/Photo-Shopper/static/js/2.ce11e53d.chunk.js.LICENSE.txt"
+    "static/js/2.30e5131d.chunk.js.LICENSE.txt": "/Photo-Shopper/static/js/2.30e5131d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4137acdd.js",
-    "static/js/2.ce11e53d.chunk.js",
+    "static/js/2.30e5131d.chunk.js",
     "static/css/main.e84f3054.chunk.css",
-    "static/js/main.36e869cc.chunk.js"
+    "static/js/main.b797ad0c.chunk.js"
   ]
 }
