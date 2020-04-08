@@ -36,6 +36,10 @@ function PicContextProvider({ children }) {
     setCartItems((prevPhotos) => prevPhotos.filter((item) => item.id !== id));
   }
 
+  function clearCart() {
+    setCartItems([]);
+  }
+
   return (
     <>
       <PicContext.Provider
@@ -45,6 +49,7 @@ function PicContextProvider({ children }) {
           cartItems,
           addToCart,
           removeFromCart,
+          clearCart,
         }}
       >
         {children}
