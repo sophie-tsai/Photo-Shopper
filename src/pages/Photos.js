@@ -5,11 +5,18 @@ import { PicContext } from "../picContext";
 
 function Photos() {
   const { allPhotos } = useContext(PicContext);
+
   const photoElements = allPhotos.map((photo, index) => (
     <Image key={photo.id} img={photo} className={getClass(index)} />
   ));
 
-  return <main className="photos">{photoElements}</main>;
+  return (
+    <>
+      <main className="photos">
+        {allPhotos.length === 0 ? "Loading" : photoElements}
+      </main>
+    </>
+  );
 }
 
 export default Photos;
