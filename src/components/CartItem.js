@@ -15,7 +15,7 @@ function CartItem({ item }) {
         ref={ref}
         onClick={() => removeFromCart(item.id)}
       ></i>
-      <img src={item.url} width="130px" />
+      <img src={item.urls.regular} width="130px" />
       <p>$5.99</p>
     </div>
   );

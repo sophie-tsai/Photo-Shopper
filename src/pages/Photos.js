@@ -28,9 +28,7 @@ function Photos() {
     <>
       <main className="photos">
         {allPhotos.length === 0 ? (
-          <div id="loadingDiv" ref={ref}>
-            <h3 className="loading">Loading...</h3>
-          </div>
+          <div id="loadingDiv" ref={ref}></div>
         ) : (
           photoElements
         )}

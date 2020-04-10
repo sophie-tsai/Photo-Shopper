@@ -10,23 +10,23 @@ function Image({ className, img }) {
 
   const [isHovered, ref] = useHover();
 
-  function heartIcon() {
-    if (img.isFavorite) {
-      return (
-        <i
-          className="ri-heart-fill favorite"
-          onClick={() => toggleFavorite(img.id)}
-        ></i>
-      );
-    } else if (isHovered) {
-      return (
-        <i
-          className="ri-heart-line favorite"
-          onClick={() => toggleFavorite(img.id)}
-        ></i>
-      );
-    }
-  }
+  // function heartIcon() {
+  //   if (img.isFavorite) {
+  //     return (
+  //       <i
+  //         className="ri-heart-fill favorite"
+  //         onClick={() => toggleFavorite(img.id)}
+  //       ></i>
+  //     );
+  //   } else if (isHovered) {
+  //     return (
+  //       <i
+  //         className="ri-heart-line favorite"
+  //         onClick={() => toggleFavorite(img.id)}
+  //       ></i>
+  //     );
+  //   }
+  // }
 
   function addIcon() {
     const alreadyInCart = cartItems.some((item) => item.id === img.id);
@@ -49,20 +49,20 @@ function Image({ className, img }) {
 
   return (
     <div className={`${className} image-container`} ref={ref}>
-      <img src={img.url} className="image-grid" />
-      {heartIcon()}
+      <img src={img.urls.regular} className="image-grid" />
+      {/* {heartIcon()} */}
       {addIcon()}
     </div>
   );
 }
 
-Image.propTypes = {
-  className: PropTypes.string,
-  img: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    isFavorite: PropTypes.bool,
-  }),
-};
+// Image.propTypes = {
+//   className: PropTypes.string,
+//   img: PropTypes.shape({
+//     id: PropTypes.string.isRequired,
+//     url: PropTypes.string.isRequired,
+//     // isFavorite: PropTypes.bool,
+//   }),
+// };
 
 export default Image;
