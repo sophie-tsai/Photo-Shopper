@@ -1,12 +1,9 @@
-import React, { useContext, useRef, useCallback, useState } from "react";
+import React, { useContext } from "react";
 import { PicContext } from "../picContext";
 import PropTypes from "prop-types";
 import useHover from "../hooks/useHover";
 
 function Image({ className, img }) {
-  // TODO not working, .current is null
-  const imageRef = useRef(null);
-
   const { toggleFavorite, addToCart, cartItems, removeFromCart } = useContext(
     PicContext
   );
@@ -51,14 +48,8 @@ function Image({ className, img }) {
   }
 
   return (
-    <div
-      className={`${className} image-container`}
-      ref={ref}
-      onClick={() => {
-        console.log(imageRef.current.complete);
-      }}
-    >
-      <img src={img.url} className="image-grid" ref={imageRef} />
+    <div className={`${className} image-container`} ref={ref}>
+      <img src={img.url} className="image-grid" />
       {heartIcon()}
       {addIcon()}
     </div>

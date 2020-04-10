@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <header>
-      <Link to="/Photo-Shopper">
+      <Link to="/Photo-Shopper/">
         <h2>Photo Shopper</h2>
       </Link>
 

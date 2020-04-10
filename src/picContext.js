@@ -12,7 +12,18 @@ function PicContextProvider({ children }) {
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setAllPhotos(data));
+      .then((data) => {
+        const imgPromises = data.map((img) => {
+          return new Promise(function (resolve) {
+            const image = new Image();
+            image.src = img.url;
+            image.onload = () => {
+              resolve();
+            };
+          });
+        });
+        Promise.all(imgPromises).then(() => setAllPhotos(data));
+      });
   }, []);
 
   function toggleFavorite(id) {
