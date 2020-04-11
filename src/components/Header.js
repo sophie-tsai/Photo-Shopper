@@ -9,15 +9,18 @@ function Header() {
     cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line";
 
   return (
-    <header>
+    <div className="header">
       <Link to="/Photo-Shopper/">
-        <h2>Photo Shopper</h2>
+        <i className="ri-home-4-line ri-fw ri-2x"></i>
       </Link>
 
+      <div className="headerDiv">
+        <span className="headerText">Photo Shopper</span>
+      </div>
       <Link to="/Photo-Shopper/cart">
         <i className={`${cartClassName} ri-fw ri-2x`}></i>
       </Link>
-    </header>
+    </div>
   );
 }
 

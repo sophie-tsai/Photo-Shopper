@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import Photos from "./pages/Photos";
 
 const PicContext = React.createContext();
 
@@ -10,7 +11,7 @@ function PicContextProvider({ children }) {
   //   "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
 
   const unsplashUrl =
-    "https://api.unsplash.com/search/photos?query=dog&client_id=py_AVXff_HcNI2VvUQFKlxwxEF4V-aCDHsK-FRfCwoo&per_page=30&order_by=popular";
+    "https://api.unsplash.com/search/photos?&query=dog&per_page=40&order_by=popular&client_id=py_AVXff_HcNI2VvUQFKlxwxEF4V-aCDHsK-FRfCwoo";
 
   useEffect(() => {
     // fetch(url)
@@ -32,22 +33,29 @@ function PicContextProvider({ children }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.results);
-        setAllPhotos(data.results);
+        const filteredData = data.results.map((photo) => ({
+          id: photo.id,
+          url: photo.urls.regular,
+          alt: photo.alt_description,
+          isFavorite: false,
+        }));
+        console.log(filteredData);
+        setAllPhotos(filteredData);
       });
   }, []);
 
-  // function toggleFavorite(id) {
-  //   const updatedArray = allPhotos.map((photo) => {
-  //     if (photo.id === id) {
-  //       return {
-  //         ...photo,
-  //         isFavorite: !photo.isFavorite,
-  //       };
-  //     }
-  //     return photo;
-  //   });
-  //   setAllPhotos(updatedArray);
-  // }
+  function toggleFavorite(id) {
+    const updatedArray = allPhotos.map((photo) => {
+      if (photo.id === id) {
+        return {
+          ...photo,
+          isFavorite: !photo.isFavorite,
+        };
+      }
+      return photo;
+    });
+    setAllPhotos(updatedArray);
+  }
 
   function addToCart(newItem) {
     setCartItems((prevPhotos) => [...prevPhotos, newItem]);
@@ -66,7 +74,7 @@ function PicContextProvider({ children }) {
       <PicContext.Provider
         value={{
           allPhotos,
-          // toggleFavorite,
+          toggleFavorite,
           cartItems,
           addToCart,
           removeFromCart,
