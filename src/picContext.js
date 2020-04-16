@@ -69,6 +69,12 @@ function PicContextProvider({ children }) {
     setCartItems([]);
   }
 
+  function handleKeyUp(event) {
+    if (event.keyCode === 13) {
+      console.log("entered!");
+    }
+  }
+
   return (
     <>
       <PicContext.Provider
@@ -79,6 +85,7 @@ function PicContextProvider({ children }) {
           addToCart,
           removeFromCart,
           clearCart,
+          handleKeyUp,
         }}
       >
         {children}
