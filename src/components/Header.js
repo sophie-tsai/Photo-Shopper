@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import { PicContext } from "../picContext";
 
 function Header() {
-  const { cartItems, handleKeyUp } = useContext(PicContext);
-  const [searchKeyWords, setSearchKeyWords] = useState("");
+  const {
+    cartItems,
+    handleKeyUp,
+    searchKeyWords,
+    setSearchKeyWords,
+  } = useContext(PicContext);
 
   const cartClassName =
     cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line";
@@ -12,7 +16,6 @@ function Header() {
   function handleChange(event) {
     const { value } = event.target;
     setSearchKeyWords(value);
-    console.log(value);
   }
 
   return (

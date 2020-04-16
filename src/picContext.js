@@ -6,6 +6,7 @@ const PicContext = React.createContext();
 function PicContextProvider({ children }) {
   const [allPhotos, setAllPhotos] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchKeyWords, setSearchKeyWords] = useState("");
 
   // const url =
   //   "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
@@ -29,20 +30,11 @@ function PicContextProvider({ children }) {
     //     Promise.all(imgPromises).then(() => setAllPhotos(data));
     //   });
 
-    fetch(unsplashUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.results);
-        const filteredData = data.results.map((photo) => ({
-          id: photo.id,
-          url: photo.urls.regular,
-          alt: photo.alt_description,
-          isFavorite: false,
-        }));
-        console.log(filteredData);
-        setAllPhotos(filteredData);
-      });
+    fetchImages(unsplashUrl);
   }, []);
+
+  const createSearchUrl = (input) =>
+    `https://api.unsplash.com/search/photos?&query=${input}&per_page=40&order_by=popular&client_id=py_AVXff_HcNI2VvUQFKlxwxEF4V-aCDHsK-FRfCwoo`;
 
   function toggleFavorite(id) {
     const updatedArray = allPhotos.map((photo) => {
@@ -72,7 +64,28 @@ function PicContextProvider({ children }) {
   function handleKeyUp(event) {
     if (event.keyCode === 13) {
       console.log("entered!");
+
+      const searchUrl = createSearchUrl(searchKeyWords);
+      console.log(searchUrl);
+      setSearchKeyWords("");
+      fetchImages(searchUrl);
     }
+  }
+
+  function fetchImages(url) {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.results);
+        const filteredData = data.results.map((photo) => ({
+          id: photo.id,
+          url: photo.urls.regular,
+          alt: photo.alt_description,
+          isFavorite: false,
+        }));
+        console.log(filteredData);
+        setAllPhotos(filteredData);
+      });
   }
 
   return (
@@ -86,6 +99,8 @@ function PicContextProvider({ children }) {
           removeFromCart,
           clearCart,
           handleKeyUp,
+          searchKeyWords,
+          setSearchKeyWords,
         }}
       >
         {children}
