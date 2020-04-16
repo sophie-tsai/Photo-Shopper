@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --black: #150605;
   --red: #ea453c;
@@ -8,10 +12,103 @@
 
 html,
 body {
-  font-family: "Staatliches", cursive;
+  font-family: "Patua One", cursive;
   margin: 0;
   padding: 0;
 }
+
+/* TYPOGRAPHY */
+
+h2 {
+  letter-spacing: 1.25px;
+}
+
+h1 {
+  letter-spacing: 2px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--light-blue);
+}
+
+a:focus,
+a:hover {
+  color: var(--light-blue);
+}
+a:active {
+  color: var(--light-blue);
+}
+
+/* HEADER */
+
+.headerText {
+  letter-spacing: 2px;
+  font-size: 2.5em;
+  /* margin: 0 1em; */
+}
+
+.header {
+  align-items: center;
+  background-color: #29355c;
+  background-image: url(./vintage-wallpaper.png);
+  /* Background pattern from Toptal Subtle Patterns */
+  background-size: 750px;
+  min-width: 100vw;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 2em 1em;
+  -webkit-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
+  -moz-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
+  box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+}
+
+.home-icon {
+  margin-right: 0.5em;
+}
+
+/* .heart-icon {
+  margin: 0 0.5em;
+} */
+
+.headerContainer {
+  display: flex;
+  max-width: 95vw;
+  margin: 0 auto;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.searchbar input {
+  width: 100%;
+  background-color: #c9cdd7;
+  border: none;
+  color: #29355c;
+  border-radius: 15px;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  font-family: "Roboto", sans-serif;
+}
+
+.searchbar {
+  flex-grow: 1;
+  align-self: center;
+  padding: 0;
+  margin: 0 2em;
+}
+
+.headerTextDiv {
+  padding: 0px;
+}
+
+/* LAYOUT */
 
 main.photos {
   padding: 1.5em;
@@ -22,8 +119,10 @@ main.photos {
   grid-auto-flow: dense;
 }
 
-main.cart-page {
+.cart-page {
   padding: 25px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .cart-page > h1 {
@@ -41,10 +140,15 @@ main.cart-page {
 }
 
 div.order-button > button {
-  border-color: var(--black);
+  border: 0;
   cursor: pointer;
   padding: 15px;
   transition: all 0.2s ease-in-out;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  border-radius: 15px;
+  letter-spacing: 1px;
+  background-image: url(./vintage-wallpaper.png);
 }
 
 div.order-button > button:focus {
@@ -97,7 +201,7 @@ img.image-grid {
 }
 
 .cart {
-  color: var(--blue);
+  color: #c9cdd7;
   font-size: 1.2rem;
   position: absolute;
   top: 5px;
@@ -118,45 +222,8 @@ img.image-grid {
   grid-row: span 2;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  background-color: #2f4f4f;
-  color: var(--light-blue);
-  padding: 10px 25px;
-  -webkit-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
-  -moz-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
-  box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
-}
-
-a {
-  text-decoration: none;
-}
-
-a:visited {
-  color: var(--light-blue);
-}
-a:hover {
-  color: var(--light-blue);
-}
-a:active {
-  color: var(--light-blue);
-}
-
-.headerText {
-  letter-spacing: 2px;
-  font-size: 2.5em;
-}
-
-.headerDiv {
-  margin: 0 auto;
-  padding: 0px;
-}
-
-h2 {
-  letter-spacing: 1.25px;
-}
-
-h1 {
-  letter-spacing: 2px;
+@media (max-width: 700px) {
+  .cart-page {
+    width: 90%;
+  }
 }
