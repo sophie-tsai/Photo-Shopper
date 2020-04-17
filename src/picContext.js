@@ -11,8 +11,7 @@ function PicContextProvider({ children }) {
   // const url =
   //   "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
 
-  const unsplashUrl =
-    "https://api.unsplash.com/search/photos?&query=dog&per_page=40&order_by=popular&client_id=py_AVXff_HcNI2VvUQFKlxwxEF4V-aCDHsK-FRfCwoo";
+  const unsplashUrl = `https://api.unsplash.com/search/photos?&query=dog&per_page=40&order_by=popular&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
 
   useEffect(() => {
     // fetch(url)
@@ -34,7 +33,7 @@ function PicContextProvider({ children }) {
   }, []);
 
   const createSearchUrl = (input) =>
-    `https://api.unsplash.com/search/photos?&query=${input}&per_page=40&order_by=popular&client_id=py_AVXff_HcNI2VvUQFKlxwxEF4V-aCDHsK-FRfCwoo`;
+    `https://api.unsplash.com/search/photos?&query=${input}&per_page=40&order_by=popular&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
 
   function toggleFavorite(id) {
     const updatedArray = allPhotos.map((photo) => {
@@ -63,10 +62,7 @@ function PicContextProvider({ children }) {
 
   function handleKeyUp(event) {
     if (event.keyCode === 13) {
-      console.log("entered!");
-
       const searchUrl = createSearchUrl(searchKeyWords);
-      console.log(searchUrl);
       setSearchKeyWords("");
       fetchImages(searchUrl);
     }
