@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation, Redirect } from "react-router-dom";
 import { PicContext } from "../picContext";
 
 function Header() {
@@ -9,6 +9,9 @@ function Header() {
     searchKeyWords,
     setSearchKeyWords,
   } = useContext(PicContext);
+
+  const { pathname } = useLocation();
+  console.log(pathname);
 
   const cartClassName =
     cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line";
