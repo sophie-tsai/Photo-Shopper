@@ -9,9 +9,10 @@ function PicContextProvider({ children }) {
   const [allPhotos, setAllPhotos] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [searchKeyWords, setSearchKeyWords] = useState("");
+  const [currentPage, setCurrentPage] = useState("");
 
   useEffect(() => {
-    getLatestImagesPromise().then((filteredData) => setAllPhotos(filteredData));
+    getLatestImagesPromise().then((data) => setAllPhotos(data));
   }, []);
 
   function toggleFavorite(id) {
@@ -39,13 +40,10 @@ function PicContextProvider({ children }) {
     setCartItems([]);
   }
 
-  function handleKeyUp(event) {
-    if (event.keyCode === 13) {
-      getSearchImagesPromise(searchKeyWords).then((filteredData) =>
-        setAllPhotos(filteredData)
-      );
-      setSearchKeyWords("");
-    }
+  function searchAndUpdate(searchKeyWords, pathname) {
+    getSearchImagesPromise(searchKeyWords).then((data) => setAllPhotos(data));
+    setSearchKeyWords("");
+    setCurrentPage(pathname);
   }
 
   return (
@@ -58,9 +56,11 @@ function PicContextProvider({ children }) {
           addToCart,
           removeFromCart,
           clearCart,
-          handleKeyUp,
+          searchAndUpdate,
           searchKeyWords,
           setSearchKeyWords,
+          currentPage,
+          setCurrentPage,
         }}
       >
         {children}

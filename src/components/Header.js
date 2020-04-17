@@ -5,13 +5,12 @@ import { PicContext } from "../picContext";
 function Header() {
   const {
     cartItems,
-    handleKeyUp,
+    searchAndUpdate,
     searchKeyWords,
     setSearchKeyWords,
   } = useContext(PicContext);
 
   const { pathname } = useLocation();
-  console.log(pathname);
 
   const cartClassName =
     cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line";
@@ -19,6 +18,12 @@ function Header() {
   function handleChange(event) {
     const { value } = event.target;
     setSearchKeyWords(value);
+  }
+
+  function handleKeyUp(event) {
+    if (event.keyCode === 13) {
+      searchAndUpdate(searchKeyWords, pathname);
+    }
   }
 
   return (

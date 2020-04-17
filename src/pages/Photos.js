@@ -1,11 +1,15 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext, useCallback, useEffect } from "react";
 import Image from "../components/Image";
 import { getClass } from "../utils/grid";
 import { PicContext } from "../picContext";
 import lottie from "lottie-web";
 
 function Photos() {
-  const { allPhotos } = useContext(PicContext);
+  const { allPhotos, currentPage, setCurrentPage } = useContext(PicContext);
+
+  useEffect(() => {
+    setCurrentPage("");
+  }, [currentPage]);
 
   const ref = useCallback((node) => {
     if (node !== null) {
