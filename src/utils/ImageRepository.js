@@ -2,7 +2,16 @@ function getImagesPromise(url) {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const filteredData = data.results.map((photo) => ({
+      if (url.includes("query")) {
+        const filteredQueryData = data.results.map((photo) => ({
+          id: photo.id,
+          url: photo.urls.regular,
+          alt: photo.alt_description,
+          isFavorite: false,
+        }));
+        return filteredQueryData;
+      }
+      const filteredData = data.map((photo) => ({
         id: photo.id,
         url: photo.urls.regular,
         alt: photo.alt_description,
@@ -13,12 +22,12 @@ function getImagesPromise(url) {
 }
 
 function getLatestImagesPromise() {
-  const latestImagesUrl = `https://api.unsplash.com/search/photos?&query=dog&per_page=40&order_by=popular&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
+  const latestImagesUrl = `https://api.unsplash.com/photos?&per_page=30&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
   return getImagesPromise(latestImagesUrl);
 }
 
 function getSearchImagesPromise(searchKeyWords) {
-  const searchUrl = `https://api.unsplash.com/search/photos?&query=${searchKeyWords}&per_page=40&order_by=popular&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
+  const searchUrl = `https://api.unsplash.com/search/photos?&query=${searchKeyWords}&per_page=30&order_by=popular&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
   return getImagesPromise(searchUrl);
 }
 

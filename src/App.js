@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Header from "./components/Header";
 import Cart from "./pages/Cart";
 
-import Photos from "./pages/Photos";
+import Photos from "./pages/Photos/Photos";
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { PicContext } from "./picContext";
