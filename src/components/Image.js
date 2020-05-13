@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import useHover from "../hooks/useHover";
 
 function Image({ className, img }) {
-  const { toggleFavorite, addToCart, cartItems, removeFromCart } = useContext(
+  const { toggleFavorite, addItem, cartItems, removeItem } = useContext(
     PicContext
   );
 
@@ -15,7 +15,10 @@ function Image({ className, img }) {
       return (
         <i
           className="ri-heart-fill favorite"
-          onClick={() => toggleFavorite(img.id)}
+          onClick={() => {
+            toggleFavorite(img.id);
+            removeItem(img.id, "heart");
+          }}
         ></i>
       );
     } else if (isHovered) {
@@ -34,14 +37,14 @@ function Image({ className, img }) {
       return (
         <i
           className="ri-shopping-cart-fill cart"
-          onClick={() => removeFromCart(img.id)}
+          onClick={() => removeItem(img.id, "cart")}
         ></i>
       );
     } else if (isHovered) {
       return (
         <i
           className="ri-add-circle-line cart"
-          onClick={() => addToCart(img)}
+          onClick={() => addItem(img, "cart")}
         ></i>
       );
     }

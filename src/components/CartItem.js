@@ -5,7 +5,7 @@ import useHover from "../hooks/useHover";
 
 function CartItem({ item }) {
   const [isHovered, ref] = useHover();
-  const { removeFromCart } = useContext(PicContext);
+  const { removeItem } = useContext(PicContext);
   const binClassName = isHovered ? "fill" : "line";
 
   return (
@@ -13,10 +13,10 @@ function CartItem({ item }) {
       <i
         className={`ri-delete-bin-${binClassName}`}
         ref={ref}
-        onClick={() => removeFromCart(item.id)}
+        onClick={() => removeItem(item.id, "cart")}
       ></i>
       <img src={item.url} alt={item.alt} width="160px" />
-      <p>$5.99</p>
+      <p>$9.99</p>
     </div>
   );
 }

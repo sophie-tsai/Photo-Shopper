@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import Header from "./components/Header";
-import Cart from "./pages/Cart";
-
+import Header from "./components/Header/Header";
+import Cart from "./pages/Cart/CartPage";
+import HeartPage from "./pages/HeartPage/HeartPage";
 import Photos from "./pages/Photos/Photos";
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
@@ -25,8 +25,11 @@ function App() {
         <Route exact path="/Photo-Shopper/">
           <Photos />
         </Route>
+        <Route exact path="/Photo-Shopper/Heart">
+          <HeartPage />
+        </Route>
 
-        <Route path="/Photo-Shopper/cart">
+        <Route exact path="/Photo-Shopper/Cart">
           <Cart />
         </Route>
       </Switch>

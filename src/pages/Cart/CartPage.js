@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { PicContext } from "../picContext";
-import CartItem from "../components/CartItem";
+import { PicContext } from "../../picContext";
+import CartItem from "../../components/CartItem";
 
 function Cart() {
   const [buttonText, setButtonText] = useState("Place Order");
@@ -8,7 +8,8 @@ function Cart() {
   const cartItemElements = cartItems.map((item) => (
     <CartItem key={item.id} item={item} />
   ));
-  const totalCost = 5.99 * cartItems.length;
+  const totalCost = 9.99 * cartItems.length;
+
   const totalCostDisplay = totalCost.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",

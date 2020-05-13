@@ -7,6 +7,7 @@ function getImagesPromise(url) {
           id: photo.id,
           url: photo.urls.regular,
           alt: photo.alt_description,
+          photographer: photo.user.name,
           isFavorite: false,
         }));
         return filteredQueryData;
@@ -15,6 +16,7 @@ function getImagesPromise(url) {
         id: photo.id,
         url: photo.urls.regular,
         alt: photo.alt_description,
+        photographer: photo.user.name,
         isFavorite: false,
       }));
       return filteredData;
@@ -22,12 +24,12 @@ function getImagesPromise(url) {
 }
 
 function getLatestImagesPromise() {
-  const latestImagesUrl = `https://api.unsplash.com/photos?&per_page=30&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
+  const latestImagesUrl = `https://api.unsplash.com/photos?&per_page=29&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
   return getImagesPromise(latestImagesUrl);
 }
 
 function getSearchImagesPromise(searchKeyWords) {
-  const searchUrl = `https://api.unsplash.com/search/photos?&query=${searchKeyWords}&per_page=30&order_by=popular&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
+  const searchUrl = `https://api.unsplash.com/search/photos?&query=${searchKeyWords}&per_page=29&order_by=popular&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`;
   return getImagesPromise(searchUrl);
 }
 

@@ -8,6 +8,7 @@ const PicContext = React.createContext();
 function PicContextProvider({ children }) {
   const [allPhotos, setAllPhotos] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [heartItems, setHeartItems] = useState([]);
   const [searchKeyWords, setSearchKeyWords] = useState("");
   const [currentPage, setCurrentPage] = useState("");
 
@@ -18,22 +19,32 @@ function PicContextProvider({ children }) {
   function toggleFavorite(id) {
     const updatedArray = allPhotos.map((photo) => {
       if (photo.id === id) {
+        addItem(photo, "loved");
         return {
           ...photo,
           isFavorite: !photo.isFavorite,
         };
       }
+
       return photo;
     });
     setAllPhotos(updatedArray);
   }
 
-  function addToCart(newItem) {
-    setCartItems((prevPhotos) => [...prevPhotos, newItem]);
+  function addItem(newItem, container) {
+    if (container === "cart") {
+      setCartItems((prevPhotos) => [...prevPhotos, newItem]);
+      return;
+    }
+    setHeartItems((prevPhotos) => [...prevPhotos, newItem]);
   }
 
-  function removeFromCart(id) {
-    setCartItems((prevPhotos) => prevPhotos.filter((item) => item.id !== id));
+  function removeItem(id, container) {
+    if (container === "cart") {
+      setCartItems((prevPhotos) => prevPhotos.filter((item) => item.id !== id));
+      return;
+    }
+    setHeartItems((prevPhotos) => prevPhotos.filter((item) => item.id !== id));
   }
 
   function clearCart() {
@@ -53,14 +64,15 @@ function PicContextProvider({ children }) {
           allPhotos,
           toggleFavorite,
           cartItems,
-          addToCart,
-          removeFromCart,
+          addItem,
+          removeItem,
           clearCart,
           searchAndUpdate,
           searchKeyWords,
           setSearchKeyWords,
           currentPage,
           setCurrentPage,
+          heartItems,
         }}
       >
         {children}

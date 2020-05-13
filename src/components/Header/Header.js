@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useLocation, Redirect } from "react-router-dom";
-import { PicContext } from "../picContext";
+import { PicContext } from "../../picContext";
+import "./Header.css";
 
 function Header() {
   const {
@@ -8,12 +9,16 @@ function Header() {
     searchAndUpdate,
     searchKeyWords,
     setSearchKeyWords,
+    heartItems,
   } = useContext(PicContext);
 
   const { pathname } = useLocation();
 
   const cartClassName =
     cartItems.length > 0 ? "ri-shopping-cart-fill" : "ri-shopping-cart-line";
+
+  const heartClassName =
+    heartItems.length > 0 ? "ri-heart-fill" : "ri-heart-line";
 
   function handleChange(event) {
     const { value } = event.target;
@@ -47,18 +52,14 @@ function Header() {
         </div>
 
         <div className="headerIcons">
-          {/* <div className="home-icon">
-            <Link to="/Photo-Shopper/">
-              <i className="ri-home-4-line ri-fw ri-2x"></i>
-            
-          </div> */}
-
           <div className="heart-icon">
-            <i className="ri-heart-line ri-fw ri-2x"></i>
+            <Link to="/Photo-Shopper/Heart">
+              <i className={`${heartClassName} ri-fw ri-2x`}></i>
+            </Link>
           </div>
 
           <div className="cart-icon">
-            <Link to="/Photo-Shopper/cart">
+            <Link to="/Photo-Shopper/Cart">
               <i className={`${cartClassName} ri-fw ri-2x`}></i>
             </Link>
           </div>

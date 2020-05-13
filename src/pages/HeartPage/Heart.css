@@ -1,0 +1,15 @@
+/* TYPOGRAPHY */
+
+.no-favorites {
+  text-align: center;
+  margin: 3em 0;
+}
+
+/* LAYOUT */
+
+.heart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0;
+}
