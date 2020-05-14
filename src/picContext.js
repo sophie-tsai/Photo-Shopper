@@ -11,9 +11,12 @@ function PicContextProvider({ children }) {
   const [heartItems, setHeartItems] = useState([]);
   const [searchKeyWords, setSearchKeyWords] = useState("");
   const [currentPage, setCurrentPage] = useState("");
+  const [queryPage, setQueryPage] = useState(1);
+  const [latestImagesPage, setLatestImagesPage] = useState(1);
 
   useEffect(() => {
-    getLatestImagesPromise().then((data) => setAllPhotos(data));
+    getLatestImagesPromise(latestImagesPage).then((data) => setAllPhotos(data));
+    setLatestImagesPage((prevPage) => prevPage + 1);
   }, []);
 
   function toggleFavorite(id) {
@@ -52,9 +55,27 @@ function PicContextProvider({ children }) {
   }
 
   function searchAndUpdate(searchKeyWords, pathname) {
-    getSearchImagesPromise(searchKeyWords).then((data) => setAllPhotos(data));
-    setSearchKeyWords("");
+    setQueryPage(1);
+
+    getSearchImagesPromise(searchKeyWords, queryPage).then((data) =>
+      setAllPhotos(data)
+    );
+    setQueryPage((prevPage) => prevPage + 1);
+
     setCurrentPage(pathname);
+  }
+
+  function queryNextPage() {
+    if (searchKeyWords) {
+      getSearchImagesPromise(searchKeyWords, queryPage).then((data) =>
+        setAllPhotos(data)
+      );
+      setQueryPage((prevPage) => prevPage + 1);
+      return;
+    }
+
+    getLatestImagesPromise(latestImagesPage).then((data) => setAllPhotos(data));
+    setLatestImagesPage((prevPage) => prevPage + 1);
   }
 
   return (
@@ -73,6 +94,8 @@ function PicContextProvider({ children }) {
           currentPage,
           setCurrentPage,
           heartItems,
+          queryNextPage,
+          queryPage,
         }}
       >
         {children}

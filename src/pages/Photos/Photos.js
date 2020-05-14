@@ -1,12 +1,12 @@
 import React, { useContext, useCallback } from "react";
 import Image from "../../components/Image";
-import { getClass } from "../../utils/grid";
+// import { getClass } from "../../utils/grid";
 import { PicContext } from "../../picContext";
 import lottie from "lottie-web";
 import "./Photos.css";
 
 function Photos() {
-  const { allPhotos } = useContext(PicContext);
+  const { allPhotos, queryNextPage } = useContext(PicContext);
 
   const ref = useCallback((node) => {
     if (node !== null) {
@@ -21,20 +21,25 @@ function Photos() {
     }
   }, []);
 
-  const photoElements = allPhotos.map((photo, index) => {
-    return <Image key={photo.id} img={photo} className={getClass(index)} />;
+  const photoElements = allPhotos.map((photo) => {
+    return <Image key={photo.id} img={photo} />;
   });
 
   return (
-    <>
-      <main className="photos">
-        {allPhotos.length === 0 ? (
-          <div id="loadingDiv" ref={ref}></div>
-        ) : (
-          photoElements
-        )}
-      </main>
-    </>
+    <div className="photos-container">
+      {allPhotos.length === 0 ? (
+        <div ref={ref}></div>
+      ) : (
+        <>
+          <main className="photos">{photoElements}</main>
+          <div className="button-container">
+            <button className="next-page" onClick={queryNextPage}>
+              next page
+            </button>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
