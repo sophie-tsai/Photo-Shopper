@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   getLatestImagesPromise,
   getSearchImagesPromise,
-} from "./utils/ImageRepository";
+} from "./ImageRepository";
 const PicContext = React.createContext();
 
 function PicContextProvider({ children }) {
@@ -56,13 +56,12 @@ function PicContextProvider({ children }) {
 
   function searchAndUpdate(searchKeyWords, pathname) {
     setQueryPage(1);
+    setAllPhotos([]);
 
-    getSearchImagesPromise(searchKeyWords, queryPage).then((data) =>
-      setAllPhotos(data)
-    );
+    getSearchImagesPromise(searchKeyWords, queryPage)
+      .then((data) => setAllPhotos(data))
+      .then(setCurrentPage(pathname));
     setQueryPage((prevPage) => prevPage + 1);
-
-    setCurrentPage(pathname);
   }
 
   function queryNextPage() {

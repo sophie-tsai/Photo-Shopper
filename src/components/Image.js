@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PicContext } from "../picContext";
+import { PicContext } from "../utils/picContext";
 import PropTypes from "prop-types";
 import useHover from "../hooks/useHover";
 

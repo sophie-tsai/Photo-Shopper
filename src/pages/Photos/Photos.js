@@ -1,7 +1,7 @@
 import React, { useContext, useCallback } from "react";
 import Image from "../../components/Image";
-// import { getClass } from "../../utils/grid";
-import { PicContext } from "../../picContext";
+
+import { PicContext } from "../../utils/picContext";
 import lottie from "lottie-web";
 import "./Photos.css";
 
@@ -28,7 +28,7 @@ function Photos() {
   return (
     <div className="photos-container">
       {allPhotos.length === 0 ? (
-        <div ref={ref}></div>
+        <div ref={ref} className="loading-div"></div>
       ) : (
         <>
           <main className="photos">{photoElements}</main>

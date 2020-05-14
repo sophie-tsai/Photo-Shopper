@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
-import { PicContext } from "../../picContext";
+import { PicContext } from "../../utils/picContext";
 import CartItem from "../../components/CartItem";
+import "./Cart.css";
 
 function Cart() {
   const [buttonText, setButtonText] = useState("Place Order");
@@ -28,14 +29,17 @@ function Cart() {
     <main className="cart-page">
       <h1>Check Out</h1>
       {cartItemElements}
-      <p className="total-cost">Total: {totalCostDisplay}</p>
-      <div className="order-button">
-        {cartItems.length > 0 ? (
-          <button onClick={placeOrder}>{buttonText}</button>
-        ) : (
-          <h2>You have no items in your cart</h2>
-        )}
-      </div>
+
+      {cartItems.length > 0 ? (
+        <>
+          <p className="total-cost">Total: {totalCostDisplay}</p>
+          <div className="order-button">
+            <button onClick={placeOrder}>{buttonText}</button>
+          </div>
+        </>
+      ) : (
+        <h2 className="empty">You have no items in your cart</h2>
+      )}
     </main>
   );
 }

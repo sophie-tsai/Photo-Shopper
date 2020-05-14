@@ -22,6 +22,12 @@ img.image-grid {
   padding: 1.5em;
 }
 
+.loading-div {
+  margin: 0 auto;
+  width: 10%;
+  min-width: 100px;
+}
+
 /* BUTTONS */
 
 .button-container {
@@ -29,7 +35,7 @@ img.image-grid {
 }
 
 .next-page {
-  color: white;
+  color: rgba(255, 255, 255, 0.75);
   padding: 0.5em 1em;
   font-size: 1.5rem;
   font-family: "Patua One", cursive;
@@ -45,6 +51,10 @@ img.image-grid {
 .next-page:focus,
 .next-page:active {
   outline: none;
+}
+
+.next-page:hover {
+  color: #ffc857;
 }
 
 .next-page:active {

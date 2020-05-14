@@ -4,10 +4,15 @@
   margin-right: 1em;
 }
 
-.headerIcons {
+.header-icon:hover {
+  color: #ffc857;
+}
+
+.icon-container {
   display: flex;
   align-items: center;
-  color: #c9cdd7;
+  /* color: #c9cdd7; */
+  color: blue;
   cursor: pointer;
 }
 
@@ -53,6 +58,7 @@
   background-size: 750px;
   min-width: 100vw;
   color: rgba(255, 255, 255, 0.75);
+
   padding: 1.5em 0;
   -webkit-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
   -moz-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);

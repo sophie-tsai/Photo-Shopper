@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import HeartItem from "../../components/HeartItem";
-import { PicContext } from "../../picContext";
+import { PicContext } from "../../utils/picContext";
 import "./Heart.css";
 
 function HeartPage() {
@@ -13,9 +13,7 @@ function HeartPage() {
     <div className="heart-page">
       <h1>Your Favorites</h1>
       {heartItemElements}
-      {heartItems.length === 0 && (
-        <h2 className="no-favorites">Hm, it's empty!</h2>
-      )}
+      {heartItems.length === 0 && <h2 className="empty">Hm, it's empty!</h2>}
     </div>
   );
 }

@@ -5,7 +5,7 @@ import HeartPage from "./pages/HeartPage/HeartPage";
 import Photos from "./pages/Photos/Photos";
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { PicContext } from "./picContext";
+import { PicContext } from "./utils/picContext";
 
 function App() {
   const { currentPage, setCurrentPage } = useContext(PicContext);
@@ -18,8 +18,8 @@ function App() {
     <div>
       <Header />
       <Switch>
-        {currentPage === "/Photo-Shopper/cart" && (
-          <Redirect to="/Photo-Shopper/" />
+        {currentPage === "/Photo-Shopper/Cart" && (
+          <Redirect exact to="/Photo-Shopper/" />
         )}
 
         <Route exact path="/Photo-Shopper/">

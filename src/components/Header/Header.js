@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useLocation, Redirect } from "react-router-dom";
-import { PicContext } from "../../picContext";
+import { PicContext } from "../../utils/picContext";
 import "./Header.css";
 
 function Header() {
@@ -51,16 +51,16 @@ function Header() {
           />
         </div>
 
-        <div className="headerIcons">
+        <div className="icon-container">
           <div className="heart-icon">
             <Link to="/Photo-Shopper/Heart">
-              <i className={`${heartClassName} ri-fw ri-2x`}></i>
+              <i className={`${heartClassName} header-icon ri-fw ri-2x`}></i>
             </Link>
           </div>
 
           <div className="cart-icon">
             <Link to="/Photo-Shopper/Cart">
-              <i className={`${cartClassName} ri-fw ri-2x`}></i>
+              <i className={`${cartClassName} header-icon ri-fw ri-2x`}></i>
             </Link>
           </div>
         </div>
