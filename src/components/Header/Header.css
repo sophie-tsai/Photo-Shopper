@@ -11,8 +11,6 @@
 .icon-container {
   display: flex;
   align-items: center;
-  /* color: #c9cdd7; */
-  color: blue;
   cursor: pointer;
 }
 

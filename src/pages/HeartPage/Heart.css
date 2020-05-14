@@ -8,3 +8,14 @@
   align-items: center;
   margin: 1em 0;
 }
+
+.heart-item img {
+  margin-right: auto;
+  margin-left: 10px;
+}
+
+.ri-close-circle-line,
+.ri-close-circle-fill {
+  font-size: 1.3em;
+  cursor: pointer;
+}

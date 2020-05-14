@@ -4,14 +4,19 @@ import PropTypes from "prop-types";
 import useHover from "../hooks/useHover";
 
 function Image({ className, img }) {
-  const { toggleFavorite, addItem, cartItems, removeItem } = useContext(
-    PicContext
-  );
+  const {
+    toggleFavorite,
+    addItem,
+    cartItems,
+    removeItem,
+    heartItems,
+  } = useContext(PicContext);
 
   const [isHovered, ref] = useHover();
 
   function heartIcon() {
-    if (img.isFavorite) {
+    const isFavorited = heartItems.some((item) => item.id === img.id);
+    if (isFavorited) {
       return (
         <i
           className="ri-heart-fill favorite"
