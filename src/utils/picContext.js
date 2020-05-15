@@ -21,11 +21,19 @@ function PicContextProvider({ children }) {
       const cartStorage = JSON.parse(localStorage.cartStorage);
       setCartItems(cartStorage);
     }
+    if (localStorage.heartStorage) {
+      const heartStorage = JSON.parse(localStorage.heartStorage);
+      setHeartItems(heartStorage);
+    }
   }, []);
 
   useEffect(() => {
     localStorage.cartStorage = JSON.stringify(cartItems);
   }, [cartItems]);
+
+  useEffect(() => {
+    localStorage.heartStorage = JSON.stringify(heartItems);
+  }, [heartItems]);
 
   function toggleFavorite(id) {
     const updatedArray = allPhotos.map((photo) => {
