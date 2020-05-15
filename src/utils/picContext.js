@@ -25,11 +25,6 @@ function PicContextProvider({ children }) {
 
   useEffect(() => {
     localStorage.cartStorage = JSON.stringify(cartItems);
-    const cartStorage = JSON.parse(localStorage.cartStorage);
-
-    if (cartItems.length !== cartStorage.length) {
-      setCartItems(cartStorage);
-    }
   }, [cartItems]);
 
   function toggleFavorite(id) {
