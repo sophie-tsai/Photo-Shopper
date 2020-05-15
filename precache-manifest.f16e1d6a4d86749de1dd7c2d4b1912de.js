@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f5ba78c9b642aca708672ab3af6c5a1d",
+    "revision": "1a9c55322ca7ff0e86edfdb3ca54e4bf",
     "url": "/Photo-Shopper/index.html"
   },
   {
-    "revision": "14dbf5bc60fb4f61f689",
+    "revision": "bb5c6908cf968bfe0b0f",
     "url": "/Photo-Shopper/static/css/main.68ea2e15.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Photo-Shopper/static/js/2.b6656944.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "14dbf5bc60fb4f61f689",
-    "url": "/Photo-Shopper/static/js/main.32a63419.chunk.js"
+    "revision": "bb5c6908cf968bfe0b0f",
+    "url": "/Photo-Shopper/static/js/main.997106a6.chunk.js"
   },
   {
     "revision": "1e3672f2b9e1f43dde1d",
