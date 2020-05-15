@@ -17,7 +17,18 @@ function PicContextProvider({ children }) {
   useEffect(() => {
     getLatestImagesPromise(latestImagesPage).then((data) => setAllPhotos(data));
     setLatestImagesPage((prevPage) => prevPage + 1);
+    const cartStorage = JSON.parse(localStorage.cartStorage);
+    setCartItems(cartStorage);
   }, []);
+
+  useEffect(() => {
+    localStorage.cartStorage = JSON.stringify(cartItems);
+    const cartStorage = JSON.parse(localStorage.cartStorage);
+
+    if (cartItems.length !== cartStorage.length) {
+      setCartItems(cartStorage);
+    }
+  }, [cartItems]);
 
   function toggleFavorite(id) {
     const updatedArray = allPhotos.map((photo) => {
