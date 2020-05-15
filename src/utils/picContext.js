@@ -17,8 +17,10 @@ function PicContextProvider({ children }) {
   useEffect(() => {
     getLatestImagesPromise(latestImagesPage).then((data) => setAllPhotos(data));
     setLatestImagesPage((prevPage) => prevPage + 1);
-    const cartStorage = JSON.parse(localStorage.cartStorage);
-    setCartItems(cartStorage);
+    if (localStorage.cartStorage) {
+      const cartStorage = JSON.parse(localStorage.cartStorage);
+      setCartItems(cartStorage);
+    }
   }, []);
 
   useEffect(() => {
