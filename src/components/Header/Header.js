@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation, Redirect } from "react-router-dom";
 import { PicContext } from "../../utils/picContext";
 import "./Header.css";
 
 function Header() {
+  const [width, setWidth] = useState(900);
+  console.log(width);
+
   const {
     cartItems,
     searchAndUpdate,
@@ -11,6 +14,23 @@ function Header() {
     setSearchKeyWords,
     heartItems,
   } = useContext(PicContext);
+
+  const setWindowWidth = () => {
+    const windowWidth =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+
+    setWidth(windowWidth);
+  };
+
+  useEffect(() => {
+    setWindowWidth();
+
+    window.addEventListener("resize", setWindowWidth);
+
+    return () => window.removeEventListener("resize", setWindowWidth);
+  }, []);
 
   const { pathname } = useLocation();
 
@@ -36,7 +56,11 @@ function Header() {
       <div className="headerContainer">
         <div className="headerTextDiv">
           <Link to="/Photo-Shopper/">
-            <span className="headerText">PhotoShopper</span>
+            {width > 600 ? (
+              <span className="headerText">PhotoShopper</span>
+            ) : (
+              <i className="ri-camera-fill ri-fw ri-2x"></i>
+            )}
           </Link>
         </div>
 
