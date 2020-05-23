@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Photo-Shopper/static/css/main.68ea2e15.chunk.css",
+    "main.css": "/Photo-Shopper/static/css/main.d023d8ea.chunk.css",
     "main.js": "/Photo-Shopper/static/js/main.23b715b4.chunk.js",
     "main.js.map": "/Photo-Shopper/static/js/main.23b715b4.chunk.js.map",
     "runtime-main.js": "/Photo-Shopper/static/js/runtime-main.4137acdd.js",
@@ -8,9 +8,9 @@
     "static/js/2.69bb9737.chunk.js": "/Photo-Shopper/static/js/2.69bb9737.chunk.js",
     "static/js/2.69bb9737.chunk.js.map": "/Photo-Shopper/static/js/2.69bb9737.chunk.js.map",
     "index.html": "/Photo-Shopper/index.html",
-    "precache-manifest.ce0e3eb8b8ca6fd3cf3dde1e6c291937.js": "/Photo-Shopper/precache-manifest.ce0e3eb8b8ca6fd3cf3dde1e6c291937.js",
+    "precache-manifest.0793f10bf919e7e9d78154e882239301.js": "/Photo-Shopper/precache-manifest.0793f10bf919e7e9d78154e882239301.js",
     "service-worker.js": "/Photo-Shopper/service-worker.js",
-    "static/css/main.68ea2e15.chunk.css.map": "/Photo-Shopper/static/css/main.68ea2e15.chunk.css.map",
+    "static/css/main.d023d8ea.chunk.css.map": "/Photo-Shopper/static/css/main.d023d8ea.chunk.css.map",
     "static/js/2.69bb9737.chunk.js.LICENSE.txt": "/Photo-Shopper/static/js/2.69bb9737.chunk.js.LICENSE.txt",
     "static/media/Header.css": "/Photo-Shopper/static/media/search-line.3e8386c6.svg",
     "static/media/App.css": "/Photo-Shopper/static/media/vintage-wallpaper.78ee9c8a.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.4137acdd.js",
     "static/js/2.69bb9737.chunk.js",
-    "static/css/main.68ea2e15.chunk.css",
+    "static/css/main.d023d8ea.chunk.css",
     "static/js/main.23b715b4.chunk.js"
   ]
 }
