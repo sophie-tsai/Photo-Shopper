@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Photo-Shopper/precache-manifest.239689dde49cbfd970ecf6ebf54236c4.js"
+  "/Photo-Shopper/precache-manifest.ce0e3eb8b8ca6fd3cf3dde1e6c291937.js"
 );
 
 self.addEventListener('message', (event) => {
